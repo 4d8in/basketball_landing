@@ -931,10 +931,10 @@ const Footer = () => {
               key={i}
               className="flex flex-col items-center gap-4 opacity-10 grayscale transition-all duration-700 cursor-default"
               whileHover={{ 
-                scale: 1.08, 
-                opacity: 0.25,
-                filter: "grayscale(1) brightness(1.6)",
-                transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+                scale: 1.12, 
+                opacity: 0.35,
+                filter: "grayscale(1) brightness(2.2)",
+                transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
               }}
             >
               <div className="text-navy-deep">

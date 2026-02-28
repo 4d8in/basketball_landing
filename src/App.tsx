@@ -27,7 +27,10 @@ import {
   History,
   ChevronLeft,
   ChevronRight,
-  Play
+  Play,
+  TrendingUp,
+  Crown,
+  Scale
 } from 'lucide-react';
 
 // --- Components ---
@@ -46,7 +49,7 @@ const Navbar = () => {
     <motion.nav 
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-12 py-8 flex items-center justify-between ${isScrolled ? 'bg-ivory/98 backdrop-blur-lg border-b border-border-subtle shadow-sm' : 'bg-transparent border-b border-white/5'}`}
     >
       <div className="flex items-center gap-6">
@@ -119,8 +122,8 @@ const Hero = () => {
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.3
+                staggerChildren: 0.2,
+                delayChildren: 0.4
               }
             }
           }}
@@ -128,19 +131,27 @@ const Hero = () => {
         >
           <motion.div 
             variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: 15 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+              }
             }}
             className="flex items-center gap-5"
           >
-            <div className="h-[1px] w-12 bg-gold-muted/40" />
+            <div className="gold-divider w-12" />
             <p className="text-[12px] font-semibold tracking-[0.3em] uppercase text-gold-muted">Established 2012 • Chicago</p>
           </motion.div>
           
           <motion.h1 
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: 30 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 1.5, ease: [0.33, 1, 0.68, 1] }
+              }
             }}
             className="text-6xl md:text-8xl font-serif font-medium tracking-tight text-navy-deep leading-[1.15]"
           >
@@ -152,15 +163,22 @@ const Hero = () => {
           <motion.div 
             variants={{
               hidden: { scaleX: 0 },
-              visible: { scaleX: 1 }
+              visible: { 
+                scaleX: 1,
+                transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] }
+              }
             }}
             className="w-32 h-[1px] bg-crimson-muted/20 origin-left" 
           />
           
           <motion.p 
             variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+              }
             }}
             className="text-charcoal/70 text-xl font-light leading-relaxed max-w-2xl"
           >
@@ -169,8 +187,12 @@ const Hero = () => {
           
           <motion.div 
             variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+              }
             }}
             className="flex flex-col gap-4 pt-6"
           >
@@ -190,7 +212,10 @@ const Hero = () => {
           <motion.div 
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1 }
+              visible: { 
+                opacity: 1,
+                transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] }
+              }
             }}
             className="flex flex-wrap items-center gap-12 pt-12 border-t border-border-subtle"
           >
@@ -202,8 +227,12 @@ const Hero = () => {
               <motion.div 
                 key={i}
                 variants={{
-                  hidden: { opacity: 0, x: -10 },
-                  visible: { opacity: 1, x: 0 }
+                  hidden: { opacity: 0, x: -15 },
+                  visible: { 
+                    opacity: 1, 
+                    x: 0,
+                    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+                  }
                 }}
                 className="flex items-center gap-4"
               >
@@ -263,10 +292,14 @@ const Stats = () => {
         {stats.map((stat, i) => (
           <motion.div 
             key={i} 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.8 }}
+            transition={{ 
+              delay: i * 0.15, 
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1]
+            }}
             className={`flex flex-col gap-4 p-20 ${i !== stats.length - 1 ? 'lg:border-r border-border-subtle' : ''} ${i % 2 === 0 ? 'border-r lg:border-r-0' : ''}`}
           >
             <div className="flex items-baseline gap-1.5">
@@ -315,7 +348,7 @@ const Methodology = () => {
         <div className="grid lg:grid-cols-12 gap-20 mb-32 items-end">
           <div className="lg:col-span-7 flex flex-col gap-8">
             <div className="flex items-center gap-5">
-              <div className="h-[1px] w-12 bg-gold-muted/40" />
+              <div className="gold-divider w-12" />
               <span className="text-gold-muted text-[12px] font-bold uppercase tracking-[0.4em]">Our Philosophy</span>
             </div>
             <h2 className="text-5xl md:text-8xl font-serif font-medium text-navy-deep leading-tight">The Standard for <br/><span className="italic text-gold-muted">Preparatory</span> Excellence</h2>
@@ -327,16 +360,40 @@ const Methodology = () => {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {methods.map((method, i) => (
+        <motion.div 
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+              }
+            }
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-12"
+        >
+          {methods.map((method) => (
             <motion.div 
               key={method.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="p-12 border border-border-subtle bg-beige-light/30 rounded-none hover:bg-beige-light/50 transition-all duration-700 group institutional-shadow"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { 
+                    duration: 1.2, 
+                    ease: [0.22, 1, 0.36, 1] 
+                  }
+                }
+              }}
+              whileHover={{ 
+                y: -12,
+                transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } 
+              }}
+              className="p-12 border border-border-subtle bg-beige-light/30 rounded-none hover:bg-beige-light/50 transition-colors duration-500 group institutional-shadow cursor-default"
             >
               <div className="flex justify-between items-start mb-14">
                 <span className="text-gold-muted font-serif text-3xl">{method.id}</span>
@@ -348,7 +405,7 @@ const Methodology = () => {
               <p className="text-charcoal/50 text-base font-light leading-relaxed">{method.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -370,11 +427,11 @@ const Tiers = () => {
         <div className="grid lg:grid-cols-3 gap-16">
           {/* Tier 1 */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="flex flex-col bg-ivory p-14 border border-border-subtle institutional-shadow relative group hover:-translate-y-2 transition-transform duration-500"
+            transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col bg-ivory p-14 border border-border-subtle institutional-shadow relative group hover:-translate-y-3 transition-transform duration-700 ease-[0.16,1,0.3,1]"
           >
             <div className="flex items-center justify-between mb-12">
               <span className="text-[11px] font-bold tracking-[0.25em] text-charcoal/40 uppercase">Evaluation Phase</span>
@@ -407,11 +464,11 @@ const Tiers = () => {
 
           {/* Tier 2 */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col bg-ivory p-14 border-t-4 border-t-crimson-muted border-x border-b border-border-subtle institutional-shadow relative lg:scale-105 z-10 hover:-translate-y-2 transition-transform duration-500"
+            transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col bg-ivory p-14 border-t-4 border-t-crimson-muted border-x border-b border-border-subtle institutional-shadow relative lg:scale-105 z-10 hover:-translate-y-3 transition-transform duration-700 ease-[0.16,1,0.3,1]"
           >
             <div className="absolute top-0 right-0 p-6">
               <Award size={28} className="text-crimson-muted/10" strokeWidth={1.5} />
@@ -447,11 +504,11 @@ const Tiers = () => {
 
           {/* Tier 3 */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col bg-ivory p-14 border border-border-subtle institutional-shadow relative group hover:-translate-y-2 transition-transform duration-500"
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col bg-ivory p-14 border border-border-subtle institutional-shadow relative group hover:-translate-y-3 transition-transform duration-700 ease-[0.16,1,0.3,1]"
           >
             <div className="flex items-center justify-between mb-12">
               <span className="text-[11px] font-bold tracking-[0.25em] text-charcoal/40 uppercase">Collegiate Prep</span>
@@ -529,6 +586,8 @@ const TestimonialCarousel = () => {
       name: "David Sterling",
       role: "NCAA Recruitment Director",
       achievement: "Ivy League Scout",
+      marker: "Verified Professional",
+      icon: <ShieldCheck size={8} />,
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
@@ -537,6 +596,8 @@ const TestimonialCarousel = () => {
       name: "Sarah Jenkins",
       role: "Parent of Alumnus",
       achievement: "Stanford '23 Parent",
+      marker: "Alumni Network",
+      icon: <GraduationCap size={8} />,
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
@@ -545,6 +606,8 @@ const TestimonialCarousel = () => {
       name: "Marcus Thorne",
       role: "Former Student-Athlete, Duke University",
       achievement: "Duke '22 Captain",
+      marker: "Elite Alumnus",
+      icon: <Trophy size={8} />,
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     }
@@ -561,10 +624,10 @@ const TestimonialCarousel = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          exit={{ opacity: 0, x: -30 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="bg-white p-16 border border-border-subtle institutional-shadow relative min-h-[480px] flex flex-col justify-between"
         >
           <Quote className="absolute top-12 right-12 text-gold-muted/5" size={100} strokeWidth={0.5} />
@@ -572,7 +635,7 @@ const TestimonialCarousel = () => {
           <div>
             <div className="flex items-center gap-3 mb-10">
               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold-muted">Alumni Outcome</span>
-              <div className="h-px w-12 bg-gold-muted/20" />
+              <div className="gold-divider w-12" />
             </div>
             <p className="text-2xl md:text-3xl font-serif italic text-charcoal/90 leading-relaxed mb-14">
               "{testimonials[currentIndex].quote}"
@@ -580,40 +643,43 @@ const TestimonialCarousel = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-10">
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               <div className="relative group cursor-pointer" onClick={() => setIsVideoModalOpen(true)}>
-                <div className="p-1 border border-gold-muted/20">
+                <div className="p-0.5 border border-gold-muted/20">
                   <img 
                     alt={testimonials[currentIndex].name} 
-                    className="w-20 h-20 rounded-none grayscale border border-border-subtle object-cover transition-all duration-700 group-hover:grayscale-0" 
+                    className="w-16 h-16 rounded-none grayscale border border-border-subtle object-cover transition-all duration-700 group-hover:grayscale-0" 
                     src={testimonials[currentIndex].image} 
                     referrerPolicy="no-referrer"
                   />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center bg-navy-deep/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Play size={24} className="text-white fill-white" />
+                  <Play size={20} className="text-white fill-white" />
                 </div>
               </div>
-              <div className="flex flex-col gap-1.5">
-                <div className="flex items-center gap-3">
-                  <div className="text-[13px] uppercase tracking-widest font-bold text-navy-deep">
-                    {testimonials[currentIndex].name}
-                  </div>
-                  <div className="px-1.5 py-0.5 border border-gold-muted/10 text-[7px] text-gold-muted font-bold tracking-[0.15em] uppercase">
-                    {testimonials[currentIndex].achievement}
+              <div className="flex flex-col gap-1">
+                <div className="text-[13px] uppercase tracking-widest font-bold text-navy-deep">
+                  {testimonials[currentIndex].name}
+                </div>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] uppercase tracking-widest text-charcoal/40 font-medium">
+                  <span>{testimonials[currentIndex].role}</span>
+                  <span className="text-gold-muted/40">•</span>
+                  <span className="text-gold-muted font-semibold">{testimonials[currentIndex].achievement}</span>
+                </div>
+                <div className="flex items-center gap-3 mt-1">
+                  {testimonials[currentIndex].videoUrl && (
+                    <button 
+                      onClick={() => setIsVideoModalOpen(true)}
+                      className="text-gold-muted hover:text-crimson-muted transition-colors flex items-center gap-1.5 text-[9px] tracking-[0.15em] font-bold uppercase"
+                    >
+                      <Play size={10} className="fill-current" /> Watch Testimonial
+                    </button>
+                  )}
+                  <div className="h-3 w-[1px] bg-border-subtle" />
+                  <div className="text-[7px] uppercase tracking-widest text-crimson-muted font-bold opacity-60 flex items-center gap-1">
+                    <CheckCircle2 size={7} /> {testimonials[currentIndex].marker}
                   </div>
                 </div>
-                <div className="text-[10px] uppercase tracking-widest text-charcoal/40 font-medium">
-                  {testimonials[currentIndex].role}
-                </div>
-                {testimonials[currentIndex].videoUrl && (
-                  <button 
-                    onClick={() => setIsVideoModalOpen(true)}
-                    className="text-gold-muted hover:text-crimson-muted transition-colors flex items-center gap-1.5 text-[9px] tracking-[0.15em] font-bold uppercase mt-1"
-                  >
-                    <Play size={10} className="fill-current" /> Watch Testimonial
-                  </button>
-                )}
               </div>
             </div>
             
@@ -669,17 +735,17 @@ const Outcomes = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-5 mb-10">
-              <div className="h-[1px] w-12 bg-gold-muted/40" />
+              <div className="gold-divider w-12" />
               <span className="text-[12px] uppercase tracking-[0.5em] text-gold-muted font-bold">Institutional Success</span>
             </div>
             <h2 className="text-6xl md:text-8xl font-serif font-medium text-navy-deep leading-none mb-20">Proven <br/>Outcomes.</h2>
             
             <div className="grid grid-cols-2 gap-10">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 className="bg-beige-light p-12 border-l-4 border-gold-muted flex flex-col justify-between h-72 institutional-shadow"
               >
                 <div className="text-6xl font-serif text-navy-deep tracking-tighter">+24%</div>
@@ -689,10 +755,10 @@ const Outcomes = () => {
                 </div>
               </motion.div>
               <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="bg-beige-light p-12 border-l-4 border-gold-muted flex flex-col justify-between h-72 institutional-shadow"
               >
                 <div className="text-6xl font-serif text-navy-deep tracking-tighter">+18lb</div>
@@ -755,24 +821,24 @@ const Protocol = () => {
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
             className="absolute left-0 top-0 bottom-0 w-px bg-border-subtle origin-top" 
           />
           <div className="space-y-32">
             {phases.map((phase, i) => (
               <motion.div 
                 key={phase.id} 
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.8 }}
+                transition={{ delay: i * 0.3, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 className="relative pl-20"
               >
                 <motion.div 
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 + 0.5, type: "spring" }}
+                  transition={{ delay: i * 0.3 + 0.8, type: "spring", stiffness: 100, damping: 15 }}
                   className="absolute left-[-5.5px] top-2.5 w-2.5 h-2.5 bg-crimson-muted rounded-full ring-4 ring-beige-light" 
                 />
                 <div className="flex flex-col">
@@ -799,40 +865,41 @@ const CTA = () => {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="inline-block px-10 py-3 border border-gold-muted/30 rounded-full mb-16"
         >
           <span className="text-[12px] uppercase tracking-[0.6em] text-gold-muted font-bold">Strictly Limited Capacity</span>
         </motion.div>
         
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="text-6xl md:text-9xl font-serif italic text-navy-deep mb-16 leading-tight"
         >
           Elevate Your Presence <br/>on the Global Stage.
         </motion.h2>
         
         <motion.p 
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="text-charcoal/60 text-2xl leading-relaxed mb-24 max-w-3xl mx-auto font-light"
         >
           We only accept the most committed athletes. Start your professional trajectory today.
         </motion.p>
         
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.4 }}
+          transition={{ duration: 1.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center gap-6"
         >
           <div className="flex flex-col items-center gap-12">
-            <button className="w-full max-w-lg py-10 bg-crimson-muted text-white font-bold rounded-none shadow-xl hover:shadow-2xl transition-all duration-500 text-[14px] uppercase tracking-[0.5em] active:scale-[0.98] hover:-translate-y-1">
+            <button className="w-full max-w-lg py-10 bg-crimson-muted text-white font-bold rounded-none shadow-xl hover:shadow-2xl transition-all duration-200 text-[14px] uppercase tracking-[0.5em] active:scale-[0.98] hover:-translate-y-1 hover:bg-crimson-deep">
               Apply for Admission
             </button>
             <a href="#" className="text-charcoal/40 text-[11px] uppercase tracking-[0.6em] hover:text-charcoal transition-colors border-b border-border-subtle pb-3">
@@ -852,12 +919,30 @@ const Footer = () => {
   return (
     <footer className="py-32 px-10 border-t border-border-subtle bg-ivory">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <div className="flex justify-center gap-24 mb-20 opacity-20 grayscale transition-all hover:grayscale-0 hover:opacity-100 duration-700">
-          <ShieldCheck size={40} strokeWidth={1} />
-          <Trophy size={40} strokeWidth={1} />
-          <Users size={40} strokeWidth={1} />
-          <GraduationCap size={40} strokeWidth={1} />
-          <History size={40} strokeWidth={1} />
+        <div className="flex justify-center gap-24 mb-20">
+          {[
+            { icon: <ShieldCheck size={40} strokeWidth={1} />, label: "Discipline" },
+            { icon: <Trophy size={40} strokeWidth={1} />, label: "Excellence" },
+            { icon: <TrendingUp size={40} strokeWidth={1} />, label: "Development" },
+            { icon: <Crown size={40} strokeWidth={1} />, label: "Leadership" },
+            { icon: <Scale size={40} strokeWidth={1} />, label: "Integrity" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="flex flex-col items-center gap-4 opacity-10 grayscale transition-all duration-700 cursor-default"
+              whileHover={{ 
+                scale: 1.08, 
+                opacity: 0.25,
+                filter: "grayscale(1) brightness(1.6)",
+                transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+              }}
+            >
+              <div className="text-navy-deep">
+                {item.icon}
+              </div>
+              <span className="text-[8px] uppercase tracking-[0.3em] font-bold text-charcoal/60">{item.label}</span>
+            </motion.div>
+          ))}
         </div>
         <p className="text-[11px] uppercase tracking-[0.7em] text-charcoal/30 font-medium text-center">
           © 2024 Institutional Basketball Authority • Global Operations
@@ -874,9 +959,10 @@ const SelectivitySignals = () => {
     <section className="py-32 px-10 bg-ivory border-y border-gold-muted/10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
         <motion.div 
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col gap-4 max-w-md"
         >
           <h3 className="text-3xl font-serif text-navy-deep leading-tight">Institutional <br/><span className="italic text-gold-muted">Selectivity</span></h3>
@@ -891,11 +977,15 @@ const SelectivitySignals = () => {
           ].map((signal, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              transition={{ 
+                delay: i * 0.15, 
+                duration: 1.2,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }}
               className="flex flex-col gap-6 p-8 border border-gold-muted/5 bg-beige-light/20 institutional-shadow"
             >
               <div className="text-gold-muted">{signal.icon}</div>
@@ -918,17 +1008,17 @@ export default function App() {
       <main>
         <Hero />
         <Stats />
-        <div className="h-px w-full bg-gold-muted/10" />
+        <div className="gold-divider w-full" />
         <SelectivitySignals />
-        <div className="h-px w-full bg-gold-muted/10" />
+        <div className="gold-divider w-full" />
         <Methodology />
-        <div className="h-px w-full bg-gold-muted/10" />
+        <div className="gold-divider w-full" />
         <Tiers />
-        <div className="h-px w-full bg-gold-muted/10" />
+        <div className="gold-divider w-full" />
         <Outcomes />
-        <div className="h-px w-full bg-gold-muted/10" />
+        <div className="gold-divider w-full" />
         <Protocol />
-        <div className="h-px w-full bg-gold-muted/10" />
+        <div className="gold-divider w-full" />
         <CTA />
       </main>
       <Footer />

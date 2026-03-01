@@ -57,14 +57,14 @@ const Navbar = () => {
           <ShieldCheck size={36} strokeWidth={1} />
         </div>
         <div className="flex flex-col">
-          <h2 className="text-navy-deep text-[16px] font-bold tracking-[0.2em] uppercase leading-none font-sans">Elite Academy</h2>
-          <span className="text-[10px] text-gold-muted font-semibold uppercase tracking-[0.1em] mt-2">Institutional Authority</span>
+          <h2 className="text-navy-deep text-[18px] font-bold tracking-[0.15em] uppercase leading-none font-sans">Elite Academy</h2>
+          <span className="text-[10px] text-gold-muted font-bold uppercase tracking-[0.15em] mt-1">Preparatory Excellence</span>
         </div>
       </div>
       
       <div className="hidden lg:flex items-center gap-16">
-        {['Methodology', 'Pathways', 'Outcomes', 'Protocol'].map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} className="text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/50 hover:text-gold-muted transition-colors duration-500 relative group">
+        {['Methodology', 'Pathways', 'Protocol'].map((item) => (
+          <a key={item} href={`#${item.toLowerCase()}`} className="text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/60 hover:text-gold-muted transition-colors duration-500 relative group">
             {item}
             <span className="absolute -bottom-2 left-0 w-0 h-px bg-gold-muted transition-all duration-500 group-hover:w-full" />
           </a>
@@ -72,17 +72,14 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-10">
-        <button className="text-charcoal/30 hover:text-gold-muted transition-colors hidden sm:block">
-          <Search size={20} strokeWidth={1.5} />
+        <button className="hidden lg:block px-10 py-4 bg-crimson-muted text-white text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-crimson-deep transition-all duration-300 shadow-lg active:scale-95">
+          Apply for Admission
         </button>
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="text-charcoal/80 hover:text-gold-muted transition-colors lg:hidden"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-        <button className="hidden lg:block px-10 py-4 bg-crimson-muted text-white text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-crimson-muted/90 transition-all duration-500 shadow-lg active:scale-95">
-          Apply for Admission
         </button>
       </div>
 
@@ -108,81 +105,68 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-56 pb-40 px-10 overflow-hidden bg-ivory">
-      <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#f2f0e9_0%,transparent_70%)]" />
-      </div>
-      
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-20 items-center">
+    <section className="relative min-h-screen flex flex-col justify-center bg-ivory pt-[100px] overflow-hidden">
+      <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-12 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Left Column: Text Content */}
         <motion.div 
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           variants={{
             hidden: { opacity: 0 },
             visible: {
               opacity: 1,
               transition: {
                 staggerChildren: 0.2,
-                delayChildren: 0.4
+                delayChildren: 0.2
               }
             }
           }}
-          className="lg:col-span-7 flex flex-col gap-12"
+          className="flex flex-col gap-8 z-10 py-12 lg:py-20"
         >
           <motion.div 
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
-              }
-            }}
-            className="flex items-center gap-5"
-          >
-            <div className="gold-divider w-12" />
-            <p className="text-[12px] font-semibold tracking-[0.3em] uppercase text-gold-muted">Established 2012 • Chicago</p>
-          </motion.div>
-          
-          <motion.h1 
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: { duration: 1.5, ease: [0.33, 1, 0.68, 1] }
-              }
-            }}
-            className="text-6xl md:text-8xl font-serif font-medium tracking-tight text-navy-deep leading-[1.15]"
-          >
-            Cultivating <br/>
-            <span className="italic font-light text-gold-muted">Disciplined</span> Scholar <br/>
-            Athletes.
-          </motion.h1>
-          
-          <motion.div 
-            variants={{
-              hidden: { scaleX: 0 },
-              visible: { 
-                scaleX: 1,
-                transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] }
-              }
-            }}
-            className="w-32 h-[1px] bg-crimson-muted/20 origin-left" 
-          />
-          
-          <motion.p 
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { 
                 opacity: 1, 
                 y: 0,
-                transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+                transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
               }
             }}
-            className="text-charcoal/70 text-xl font-light leading-relaxed max-w-2xl"
+            className="flex items-center gap-4"
           >
-            A premier preparatory academy where academic rigor meets elite athletic development, fostering character and excellence on and off the court.
+            <div className="w-12 h-[1px] bg-gold-muted/60" />
+            <p className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold-muted">Elite Preparatory Academy</p>
+          </motion.div>
+
+          <motion.h1 
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+              }
+            }}
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-medium tracking-tight text-navy-deep leading-[1.05] max-w-[12ch] lg:max-w-none"
+          >
+            Cultivating <br/>
+            <span className="text-gold-muted italic font-light">Disciplined</span> <br/>
+            Scholar Athletes.
+          </motion.h1>
+          
+          <motion.p 
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }
+              }
+            }}
+            className="text-charcoal/70 text-lg md:text-xl font-light leading-relaxed max-w-lg"
+          >
+            A selective preparatory academy where academic accountability meets elite basketball development. Evaluation required for enrollment.
           </motion.p>
           
           <motion.div 
@@ -191,88 +175,90 @@ const Hero = () => {
               visible: { 
                 opacity: 1, 
                 y: 0,
-                transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+                transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
               }
             }}
-            className="flex flex-col gap-4 pt-6"
+            className="flex flex-col sm:flex-row gap-5 pt-4"
           >
-            <div className="flex flex-col sm:flex-row gap-8">
-              <button className="px-12 py-6 bg-crimson-muted text-white text-[12px] font-bold uppercase tracking-[0.25em] shadow-md hover:shadow-lg transition-all duration-500 active:scale-[0.98] hover:-translate-y-1">
-                Request Prospectus
-              </button>
-              <button className="px-12 py-6 bg-transparent border border-crimson-muted/30 text-crimson-muted text-[12px] font-bold uppercase tracking-[0.25em] hover:bg-crimson-muted/5 transition-all duration-500 active:scale-[0.98] hover:-translate-y-1">
-                Schedule Campus Visit
-              </button>
-            </div>
-            <p className="text-[10px] text-charcoal/40 uppercase tracking-[0.15em] font-medium">
-              Limited spots available for 2024 intake • Next evaluation: March 15th
-            </p>
-          </motion.div>
-
-          <motion.div 
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { 
-                opacity: 1,
-                transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] }
-              }
-            }}
-            className="flex flex-wrap items-center gap-12 pt-12 border-t border-border-subtle"
-          >
-            {[
-              { icon: <GraduationCap className="text-gold-muted" size={24} strokeWidth={1.5} />, label: "Academic", value: "Accountability" },
-              { icon: <ShieldCheck className="text-gold-muted" size={24} strokeWidth={1.5} />, label: "Selective", value: "Enrollment" },
-              { icon: <Award className="text-gold-muted" size={24} strokeWidth={1.5} />, label: "Certified", value: "Coaching Staff" }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, x: -15 },
-                  visible: { 
-                    opacity: 1, 
-                    x: 0,
-                    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
-                  }
-                }}
-                className="flex items-center gap-4"
-              >
-                {item.icon}
-                <div className="flex flex-col">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-charcoal/40">{item.label}</span>
-                  <span className="text-lg font-serif text-charcoal">{item.value}</span>
-                </div>
-              </motion.div>
-            ))}
+            <button className="px-10 py-5 bg-crimson-muted text-white text-[11px] font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-crimson-deep transition-all duration-300 active:scale-[0.98]">
+              Apply for Admission
+            </button>
+            <button className="px-10 py-5 bg-white border border-charcoal/10 text-navy-deep text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-ivory transition-all duration-300 active:scale-[0.98] shadow-sm">
+              Athlete Evaluation
+            </button>
           </motion.div>
         </motion.div>
-        
+
+        {/* Right Column: Mentoring Image */}
         <motion.div 
-          initial={{ opacity: 0, x: 15 }}
+          initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
-          className="lg:col-span-5 relative"
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="relative h-[500px] lg:h-[85vh] w-full"
         >
-          <div className="relative aspect-[4/5] rounded-none overflow-hidden border border-border-subtle institutional-shadow image-warm-filter">
+          <div className="absolute inset-0 overflow-hidden rounded-lg shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1519311965067-36d3e5f33d39?q=80&w=2071&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1593787406536-3676a152d9cb?q=80&w=2070&auto=format&fit=crop" 
               alt="Coach Mentoring Athlete" 
-              className="w-full h-full object-cover grayscale-[0.1] contrast-[1.05]"
+              className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-navy-deep/10 mix-blend-multiply" />
+            {/* Refined soft white gradient overlay for seamless blending */}
+            <div className="absolute inset-0 bg-gradient-to-r from-ivory via-ivory/40 via-20% to-transparent hidden lg:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/20 via-30% to-transparent lg:hidden" />
           </div>
-          <div className="absolute -bottom-8 -left-8 bg-ivory p-10 border border-border-subtle institutional-shadow hidden md:block">
-            <div className="flex flex-col gap-2">
-              <span className="text-4xl font-serif text-gold-muted">85+</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-charcoal/40">D1 Collegiate Placements</span>
-            </div>
-          </div>
+          
+          {/* Subtle institutional accent */}
+          <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-gold-muted/20 hidden xl:block" />
         </motion.div>
       </div>
-      
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-5 opacity-20">
-        <span className="text-[10px] uppercase tracking-[0.6em] text-charcoal font-medium">Explore</span>
-        <ChevronDown size={18} />
+    </section>
+  );
+};
+
+const Standards = () => {
+  return (
+    <section className="py-32 bg-ivory border-b border-border-subtle">
+      <div className="max-w-7xl mx-auto px-10">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-10 h-px bg-gold-muted" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-gold-muted">Institutional Values</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-navy-deep mb-8">Our Standards</h2>
+            <p className="text-charcoal/70 text-xl font-light leading-relaxed max-w-xl">
+              We hold athletes to academic accountability and performance benchmarks that exceed recreational programs.
+            </p>
+          </motion.div>
+          
+          <div className="grid sm:grid-cols-3 gap-12">
+            {[
+              "Structured Development Protocol",
+              "Weekly Academic Check-In",
+              "Performance Benchmark Tracking"
+            ].map((standard, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: i * 0.2 }}
+                className="flex flex-col gap-6"
+              >
+                <div className="w-8 h-[1px] bg-gold-muted" />
+                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-navy-deep leading-tight">
+                  {standard}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -437,9 +423,10 @@ const Tiers = () => {
               <span className="text-[11px] font-bold tracking-[0.25em] text-charcoal/40 uppercase">Evaluation Phase</span>
               <span className="text-[12px] font-bold text-gold-muted">01</span>
             </div>
-            <div className="mb-14">
+            <div className="mb-14 relative inline-block">
               <h3 className="text-3xl font-serif font-medium text-navy-deep tracking-tight italic">Foundation</h3>
-              <div className="mt-4 flex items-center gap-4">
+              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gold-muted/30" />
+              <div className="mt-8 flex items-center gap-4">
                 <div className="h-[1px] w-8 bg-gold-muted/30" />
                 <p className="text-[11px] text-charcoal/40 uppercase tracking-[0.25em] font-bold">Standard Metric</p>
               </div>
@@ -468,7 +455,7 @@ const Tiers = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col bg-ivory p-14 border-t-4 border-t-crimson-muted border-x border-b border-border-subtle institutional-shadow relative lg:scale-105 z-10 hover:-translate-y-3 transition-transform duration-700 ease-[0.16,1,0.3,1]"
+            className="flex flex-col bg-ivory p-14 border-t-4 border-t-crimson-muted border-x border-b border-border-subtle shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)] relative lg:scale-105 z-10 hover:-translate-y-3 transition-transform duration-700 ease-[0.16,1,0.3,1]"
           >
             <div className="absolute top-0 right-0 p-6">
               <Award size={28} className="text-crimson-muted/10" strokeWidth={1.5} />
@@ -477,9 +464,10 @@ const Tiers = () => {
               <span className="text-[11px] font-bold tracking-[0.25em] text-crimson-muted uppercase">Invitation Track</span>
               <span className="text-[12px] font-bold text-crimson-muted">02</span>
             </div>
-            <div className="mb-14">
+            <div className="mb-14 relative inline-block">
               <h3 className="text-3xl font-serif font-medium text-navy-deep tracking-tight italic uppercase">Performance</h3>
-              <div className="mt-4 flex items-center gap-4">
+              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gold-muted" />
+              <div className="mt-8 flex items-center gap-4">
                 <div className="h-[1px] w-8 bg-crimson-muted" />
                 <p className="text-[11px] text-gold-muted uppercase tracking-[0.25em] font-bold">Gold Standard Metric</p>
               </div>
@@ -510,13 +498,19 @@ const Tiers = () => {
             transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col bg-ivory p-14 border border-border-subtle institutional-shadow relative group hover:-translate-y-3 transition-transform duration-700 ease-[0.16,1,0.3,1]"
           >
+            <div className="absolute top-6 right-6">
+              <div className="px-3 py-1 border border-gold-muted/30 rounded-full">
+                <span className="text-[8px] font-bold uppercase tracking-widest text-gold-muted">Selective Track</span>
+              </div>
+            </div>
             <div className="flex items-center justify-between mb-12">
               <span className="text-[11px] font-bold tracking-[0.25em] text-charcoal/40 uppercase">Collegiate Prep</span>
               <span className="text-[12px] font-bold text-gold-muted">03</span>
             </div>
-            <div className="mb-14">
+            <div className="mb-14 relative inline-block">
               <h3 className="text-3xl font-serif font-medium text-navy-deep tracking-tight italic uppercase">Elite Track</h3>
-              <div className="mt-4 flex items-center gap-4">
+              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gold-muted" />
+              <div className="mt-8 flex items-center gap-4">
                 <div className="h-[1px] w-8 bg-gold-muted" />
                 <p className="text-[11px] text-charcoal/40 uppercase tracking-[0.25em] font-bold">Grade 85+ Scouting</p>
               </div>
@@ -620,95 +614,111 @@ const TestimonialCarousel = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <div className="relative">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -30 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-white p-16 border border-border-subtle institutional-shadow relative min-h-[480px] flex flex-col justify-between"
+    <div className="relative w-full max-w-2xl mx-auto">
+      {/* Carousel Container */}
+      <div className="relative overflow-hidden rounded-none">
+        <motion.div 
+          className="flex cursor-grab active:cursor-grabbing"
+          animate={{ x: `-${currentIndex * 100}%` }}
+          transition={{ type: "spring", stiffness: 260, damping: 32 }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(_, info) => {
+            if (info.offset.x < -50) next();
+            else if (info.offset.x > 50) prev();
+          }}
         >
-          <Quote className="absolute top-12 right-12 text-gold-muted/5" size={100} strokeWidth={0.5} />
-          
-          <div>
-            <div className="flex items-center gap-3 mb-10">
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold-muted">Alumni Outcome</span>
-              <div className="gold-divider w-12" />
-            </div>
-            <p className="text-2xl md:text-3xl font-serif italic text-charcoal/90 leading-relaxed mb-14">
-              "{testimonials[currentIndex].quote}"
-            </p>
-          </div>
+          {testimonials.map((testimonial, i) => (
+            <div key={i} className="w-full flex-shrink-0">
+              <div className="bg-white p-12 md:p-16 border border-border-subtle institutional-shadow relative min-h-[480px] flex flex-col justify-between mx-1">
+                <Quote className="absolute top-12 right-12 text-gold-muted/5" size={100} strokeWidth={0.5} />
+                
+                <div>
+                  <div className="flex items-center gap-3 mb-10">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold-muted">Alumni Outcome</span>
+                    <div className="gold-divider w-12" />
+                  </div>
+                  <p className="text-xl md:text-3xl font-serif italic text-charcoal/90 leading-relaxed mb-14">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-10">
-            <div className="flex items-center gap-5">
-              <div className="relative group cursor-pointer" onClick={() => setIsVideoModalOpen(true)}>
-                <div className="p-0.5 border border-gold-muted/20">
-                  <img 
-                    alt={testimonials[currentIndex].name} 
-                    className="w-16 h-16 rounded-none grayscale border border-border-subtle object-cover transition-all duration-700 group-hover:grayscale-0" 
-                    src={testimonials[currentIndex].image} 
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center bg-navy-deep/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Play size={20} className="text-white fill-white" />
-                </div>
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="text-[13px] uppercase tracking-widest font-bold text-navy-deep">
-                  {testimonials[currentIndex].name}
-                </div>
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] uppercase tracking-widest text-charcoal/40 font-medium">
-                  <span>{testimonials[currentIndex].role}</span>
-                  <span className="text-gold-muted/40">•</span>
-                  <span className="text-gold-muted font-semibold">{testimonials[currentIndex].achievement}</span>
-                </div>
-                <div className="flex items-center gap-3 mt-1">
-                  {testimonials[currentIndex].videoUrl && (
-                    <button 
-                      onClick={() => setIsVideoModalOpen(true)}
-                      className="text-gold-muted hover:text-crimson-muted transition-colors flex items-center gap-1.5 text-[9px] tracking-[0.15em] font-bold uppercase"
-                    >
-                      <Play size={10} className="fill-current" /> Watch Testimonial
-                    </button>
-                  )}
-                  <div className="h-3 w-[1px] bg-border-subtle" />
-                  <div className="text-[7px] uppercase tracking-widest text-crimson-muted font-bold opacity-60 flex items-center gap-1">
-                    <CheckCircle2 size={7} /> {testimonials[currentIndex].marker}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-10">
+                  <div className="flex items-center gap-5">
+                    <div className="relative group cursor-pointer" onClick={() => setIsVideoModalOpen(true)}>
+                      <div className="p-0.5 border border-gold-muted/20">
+                        <img 
+                          alt={testimonial.name} 
+                          className="w-16 h-16 rounded-none grayscale border border-border-subtle object-cover transition-all duration-700 group-hover:grayscale-0" 
+                          src={testimonial.image} 
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center bg-navy-deep/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Play size={20} className="text-white fill-white" />
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <div className="text-[13px] uppercase tracking-widest font-bold text-navy-deep">
+                        {testimonial.name}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] uppercase tracking-widest text-charcoal/40 font-medium">
+                        <span>{testimonial.role}</span>
+                        <span className="text-gold-muted/40">•</span>
+                        <span className="text-gold-muted font-semibold">{testimonial.achievement}</span>
+                      </div>
+                      <div className="flex items-center gap-3 mt-1">
+                        {testimonial.videoUrl && (
+                          <button 
+                            onClick={() => setIsVideoModalOpen(true)}
+                            className="text-gold-muted hover:text-crimson-muted transition-colors flex items-center gap-1.5 text-[9px] tracking-[0.15em] font-bold uppercase"
+                          >
+                            <Play size={10} className="fill-current" /> Watch Testimonial
+                          </button>
+                        )}
+                        <div className="h-3 w-[1px] bg-border-subtle" />
+                        <div className="text-[7px] uppercase tracking-widest text-crimson-muted font-bold opacity-60 flex items-center gap-1">
+                          <CheckCircle2 size={7} /> {testimonial.marker}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={prev}
-                className="p-3.5 border border-border-subtle text-charcoal/40 hover:text-gold-muted hover:border-gold-muted transition-all duration-500"
-              >
-                <ChevronLeft size={18} strokeWidth={1.5} />
-              </button>
-              <button 
-                onClick={next}
-                className="p-3.5 border border-border-subtle text-charcoal/40 hover:text-gold-muted hover:border-gold-muted transition-all duration-500"
-              >
-                <ChevronRight size={18} strokeWidth={1.5} />
-              </button>
-            </div>
-          </div>
+          ))}
         </motion.div>
-      </AnimatePresence>
-      
-      <div className="flex justify-center gap-3 mt-8">
-        {testimonials.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentIndex(i)}
-            className={`h-1.5 transition-all duration-500 ${i === currentIndex ? 'w-8 bg-gold-muted' : 'w-2 bg-gold-muted/20'}`}
-          />
-        ))}
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-between mt-10">
+        <div className="flex gap-3">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`h-1.5 transition-all duration-500 rounded-full ${i === currentIndex ? 'w-10 bg-gold-muted' : 'w-2 bg-gold-muted/20 hover:bg-gold-muted/40'}`}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={prev}
+            className="p-4 border border-border-subtle text-charcoal/40 hover:text-gold-muted hover:border-gold-muted transition-all duration-500 bg-white shadow-sm hover:shadow-md active:scale-95"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft size={20} strokeWidth={1.5} />
+          </button>
+          <button 
+            onClick={next}
+            className="p-4 border border-border-subtle text-charcoal/40 hover:text-gold-muted hover:border-gold-muted transition-all duration-500 bg-white shadow-sm hover:shadow-md active:scale-95"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={20} strokeWidth={1.5} />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -752,6 +762,12 @@ const Outcomes = () => {
                 <div>
                   <div className="text-[13px] uppercase tracking-widest text-gold-muted mb-3 font-bold">Shooting</div>
                   <div className="text-[11px] text-charcoal/50 uppercase leading-tight font-semibold">Precision Growth</div>
+                  <div className="mt-4 pt-4 border-t border-border-subtle">
+                    <p className="text-[8px] text-charcoal/40 uppercase tracking-widest leading-relaxed">
+                      Average improvement over 12 weeks<br/>
+                      Based on internal athlete performance tracking
+                    </p>
+                  </div>
                 </div>
               </motion.div>
               <motion.div 
@@ -765,6 +781,12 @@ const Outcomes = () => {
                 <div>
                   <div className="text-[13px] uppercase tracking-widest text-gold-muted mb-3 font-bold">Strength</div>
                   <div className="text-[11px] text-charcoal/50 uppercase leading-tight font-semibold">Functional Mass</div>
+                  <div className="mt-4 pt-4 border-t border-border-subtle">
+                    <p className="text-[8px] text-charcoal/40 uppercase tracking-widest leading-relaxed">
+                      Average improvement over 12 weeks<br/>
+                      Based on internal athlete performance tracking
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -1007,6 +1029,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Standards />
         <Stats />
         <div className="gold-divider w-full" />
         <SelectivitySignals />
